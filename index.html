@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絶対音感トレーニング</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- メインページ -->
+        <div id="main-page" class="page active">
+            <div class="status-section">
+                <div class="status-item">
+                    <span id="countdown">--</span>
+                </div>
+                <div class="status-item">
+                    <span id="correct-note">--</span>
+                </div>
+                <div class="status-item">
+                    <span id="accuracy">--%</span>
+                </div>
+            </div>
+            
+            <div class="answer-buttons-section">
+                <div id="answer-buttons" class="answer-buttons"></div>
+            </div>
+            
+            <div class="action-buttons-section">
+                <button id="start-game" class="action-button">ゲーム開始</button>
+                <button id="back-to-title" class="action-button secondary">タイトルへ戻る</button>
+                <a href="settings.html" class="action-button secondary">設定</a>
+                <a href="scores.html" class="action-button secondary">スコア</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.2.11/Tone.min.js" integrity="sha512-vkH9lwDNeEN+jAu/4xosPlv25WG78ftusaLQX3w7D9yiVaNarLGdVoDCoZqPtCP24LHvTO4TSGX+9nK0VCQO4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Tonejs-Instruments.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
