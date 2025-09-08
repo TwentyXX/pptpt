@@ -750,21 +750,21 @@ var SampleLibrary = {
         'D5': 'D5.mp3'
     },
     'prepared-piano': {
-        'C0': 'prep_piano_C0_2.mp3',
+        'C0': 'prep_pianoC0_2.mp3',
         'C1': 'prep_pianoC1_2.mp3',
         'C2': 'prep_pianoC2_2.mp3',
+        'C3': 'prep_pianoC3.mp3',
         'C4': 'prep_pianoC4.mp3',
         'C5': 'prep_pianoC5.mp3',
-        'D#4': 'prep_pianoDs4.mp3',
         'E0': 'prep_pianoE0_2.mp3',
         'E1': 'prep_pianoE1.mp3',
         'E2': 'prep_pianoE2.mp3',
         'E4': 'prep_pianoE4.mp3',
-        'F3': 'prep_pianoF3.mp3',
-        'G#0': 'prep_pianoGs0.mp3',
-        'G#1': 'prep_pianoGs1.mp3',
-        'G#2': 'prep_pianoGs2.mp3',
-        'G#3': 'prep_pianoGs3.mp3'
+        'Gs0': 'prep_pianoGs0.mp3',
+        'Gs1': 'prep_pianoGs1.mp3',
+        'Gs2': 'prep_pianoGs2.mp3',
+        'Gs3': 'prep_pianoGs3.mp3',
+        'Gs4': 'prep_pianoGs4.mp3'
     },
     'small-bell': {
         'G4': 'G4.mp3'
