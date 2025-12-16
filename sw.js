@@ -111,39 +111,30 @@ self.addEventListener('activate', event => {
 
 // ネットワークリクエストをインターセプト
 self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                // キャッシュにある場合はキャッシュから返す
-                if (response) {
-                    return response;
-                }
-                
-                // キャッシュにない場合はネットワークから取得
-                return fetch(event.request)
-                    .then(response => {
-                        // レスポンスが有効でない場合はそのまま返す
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
-                        
-                        // サンプルファイルの場合はキャッシュに保存
-                        if (event.request.url.includes('/samples/')) {
-                            const responseToCache = response.clone();
-                            caches.open(CACHE_NAME)
-                                .then(cache => {
-                                    cache.put(event.request, responseToCache);
-                                });
-                        }
-                        
-                        return response;
-                    })
-                    .catch(() => {
-                        // ネットワークエラーの場合、オフライン用のレスポンスを返す
-                        if (event.request.url.includes('/samples/')) {
-                            return new Response('', { status: 404 });
-                        }
-                    });
-            })
-    );
+  event.respondWith(
+    caches.match(event.request).then(cached => {
+      if (cached) {
+        return cached;
+      }
+
+      return fetch(event.request).then(response => {
+        // redirect はそのままブラウザに処理させる
+        if (response.type === 'opaqueredirect') {
+          return response;
+        }
+
+        // 正常な 200 レスポンスのみ処理
+        if (response.status === 200 && response.type === 'basic') {
+          if (event.request.url.includes('/samples/')) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, clone);
+            });
+          }
+        }
+
+        return response;
+      });
+    })
+  );
 });
