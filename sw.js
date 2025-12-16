@@ -66,27 +66,14 @@ self.addEventListener('install', event => {
             .then(cache => {
                 console.log('Service Worker: キャッシュを開きました');
                 const sampleUrls = generateSampleUrls();
-                // 基本的なファイルをキャッシュ（存在するファイルのみ）
-                return cache.addAll([
-                    './',
-                    './index.html',
-                    './settings.html', 
-                    './scores.html',
-                    './styles.css',
-                    './app.js',
-                    './settings.js',
-                    './scores.js',
-                    './Tonejs-Instruments.js'
-                ]).then(() => {
-                    // サンプルファイルを個別にキャッシュ（エラーを無視）
-                    return Promise.allSettled(
-                        sampleUrls.map(url => 
-                            cache.add(url).catch(err => {
-                                console.warn('サンプルファイルのキャッシュに失敗:', url, err);
-                            })
-                        )
-                    );
-                });
+                // サンプルファイルを個別にキャッシュ（エラーを無視）
+                return Promise.allSettled(
+                    sampleUrls.map(url => 
+                        cache.add(url).catch(err => {
+                            console.warn('サンプルファイルのキャッシュに失敗:', url, err);
+                        })
+                    )
+                );
             })
     );
     self.skipWaiting();
