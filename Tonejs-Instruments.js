@@ -760,11 +760,11 @@ var SampleLibrary = {
         'E1': 'prep_pianoE1.mp3',
         'E2': 'prep_pianoE2.mp3',
         'E4': 'prep_pianoE4.mp3',
-        'Gs0': 'prep_pianoGs0.mp3',
-        'Gs1': 'prep_pianoGs1.mp3',
-        'Gs2': 'prep_pianoGs2.mp3',
-        'Gs3': 'prep_pianoGs3.mp3',
-        'Gs4': 'prep_pianoGs4.mp3'
+        'G#0': 'prep_pianoGs0.mp3',
+        'G#1': 'prep_pianoGs1.mp3',
+        'G#2': 'prep_pianoGs2.mp3',
+        'G#3': 'prep_pianoGs3.mp3',
+        'G#4': 'prep_pianoGs4.mp3'
     },
     'small-bell': {
         'G4': 'G4.mp3'
